@@ -3,9 +3,14 @@ class Assets {
   Assets._();
 
   static const String appsMainIconAppIcon = 'assets/appsMainIcon/appIcon.png';
-  static const String iconAppsicon = 'assets/icon/appsicon.png';
+  static const String iconAppsIcon = 'assets/icon/appsicon.png';
+  static const String iconChart = 'assets/icon/Chart.png';
   static const String iconDivider = 'assets/icon/divider.png';
   static const String iconGoogle = 'assets/icon/google.png';
   static const String iconHISHAB = 'assets/icon/HISHAB.png';
+  static const String iconHome = 'assets/icon/home.png';
+  static const String iconNote = 'assets/icon/note.png';
+  static const String iconRedCircle = 'assets/icon/red circle.png';
+  static const String iconUser = 'assets/icon/user.png';
 
 }

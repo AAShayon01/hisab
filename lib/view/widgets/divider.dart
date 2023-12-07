@@ -12,7 +12,7 @@ class AppDivider extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Flexible(
+        const Flexible(
             child: Divider(
                 color: Color(0xFFBCE2EF),
                 thickness: 0.5,
@@ -20,9 +20,9 @@ class AppDivider extends StatelessWidget {
                 endIndent: 10)),
         Padding(
           padding: EdgeInsets.only(left:10.w,right: 10.w),
-          child: Text(dividerText,style: AppConst.appTFFstyle),
+          child: Text(dividerText,style: AppConst.appTFFStyle),
         ),
-        Flexible(
+        const Flexible(
             child: Divider(
                 color: Color(0xFFBCE2EF),
                 thickness: 0.5,

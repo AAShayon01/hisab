@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hisab/provider/auth_provider.dart';
 import 'package:hisab/view/screen/Login.dart';
+import 'package:provider/provider.dart';
 void main(){
-  runApp(Myapp());
+  runApp(
+      MultiProvider(providers: [
+        ChangeNotifierProvider<AuthProvider>(create: (context)=>AuthProvider())
+
+      ],child: const Myapp(),
+      )
+      );
 
 }
 

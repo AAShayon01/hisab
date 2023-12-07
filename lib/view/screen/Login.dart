@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hisab/provider/auth_provider.dart';
 import 'package:hisab/utils/app_constant.dart';
+import 'package:hisab/view/screen/homepage.dart';
 import 'package:hisab/view/widgets/app_header.dart';
 import 'package:hisab/view/widgets/divider.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/custom_text_from_field.dart';
 
@@ -20,15 +23,16 @@ class _Login_PageState extends State<Login_Page> {
 
   @override
   Widget build(BuildContext context) {
+    final ap=Provider.of<AuthProvider>(context);
     return Scaffold(
-      backgroundColor:AppConst.appbackgroundColor ,
+      backgroundColor:AppConst.appBackgroundColor ,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
               padding: EdgeInsets.only(top:100.h,left:64.4.w ),
               child: Container(
-                height: 101.h,
+                height: 111.h,
                 width: 270.w,
                 child:Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,26 +57,37 @@ class _Login_PageState extends State<Login_Page> {
                 //Custom_TFormField(emailController: _emailController),
                 Column(
                   children: [
-                    Custom_TFormField(nameofController: _emailController,
-                        yourFieldtext:'Email',
-                        keyboardtype: TextInputType.emailAddress,
-                        htext:'Enter Your Email',
+                    CustomTextFormField(
+                      nameOfController: _emailController,
+                      yourFieldText:'Email',
+                      keyBoardType: TextInputType.emailAddress,
+                      hintText:'Enter Your Email',
+                      onchanged: (value)=>ap.setEmail(value),
+                      // errorsText: ap.isEmailValid()?null :'Invalid Email',
                     ),
                     Padding(
                       padding:  EdgeInsets.only(top: 30.h),
-                      child: Custom_TFormField(
-                          nameofController: _passWordController,
-                          yourFieldtext: 'Password',
-                          keyboardtype:TextInputType.visiblePassword,
-                          htext:'Enter your Password'
+                      child: CustomTextFormField(
+                          nameOfController: _passWordController,
+                          yourFieldText: 'Password',
+                          keyBoardType:TextInputType.visiblePassword,
+                          hintText:'Enter your Password',
+                        onchanged: (value)=>ap.setPassword(value),
+                        // errorsText: ap.isPasswordValid()? null:'invalid password',
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 50.h),
                       child: SizedBox(
                         width: 330.w,height: 42.h,
-                        child: ElevatedButton(onPressed: (){},
-                            child: Text('Submit',style:AppConst.appTFFstyle),
+                        child: ElevatedButton(onPressed: (){
+                          // if(ap.email.isNotEmpty && ap.isPasswordValid()){
+                          //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
+                          // }
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
+
+                        },
+                            child: Text('Submit',style:AppConst.appTFFStyle),
                       ),
                       ),
                     ),
@@ -100,7 +115,7 @@ class _Login_PageState extends State<Login_Page> {
                     Image.asset('assets/icon/google.png',height: 24.h,width: 24.w,),
                     Padding(
                       padding: EdgeInsets.only(left: 10.w),
-                      child: Text("Login with Google",style: AppConst.appTFFHintstyle,),
+                      child: Text("Login with Google",style: AppConst.appTFFHintStyle,),
                     )
                   ],
                 ),
