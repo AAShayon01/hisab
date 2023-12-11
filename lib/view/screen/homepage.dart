@@ -235,7 +235,7 @@ class _HomepageState extends State<Homepage> {
                             child: Text('Add Expanse +',style: AppConst.appButtonTextStyle,),
                           ),
                         ),
-                        onTap: (){Navigator.push(context, MaterialPageRoute(builder:(context) => Profile() ));},
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder:(context) => Note() ));},
                       ),
                     ),
 
