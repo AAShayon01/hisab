@@ -106,7 +106,13 @@ class _HomepageState extends State<Homepage> {
                   showModalBottomSheet<void>(
                     context: context,
                     builder: (BuildContext context) {
-                      return CreateWallet();
+                      return SingleChildScrollView(
+                        child: Padding(
+                            padding: EdgeInsets.only(
+                                bottom: MediaQuery.of(context).viewInsets.bottom + 50.h),
+                          child: CreateWallet(),
+                        ),
+                      );
                     },
                   );
                 },

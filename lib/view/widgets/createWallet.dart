@@ -13,17 +13,17 @@ class CreateWallet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 360.w,
-      height: 446.h,
+      height: 500.h,
       decoration: BoxDecoration(
-        color: Color(0xFF212427),
+        color:const Color(0xFF212427),
         borderRadius: BorderRadius.circular(20),
-        border: Border(
+        border:const Border(
           left: BorderSide(color: Color(0xFF454C54)),
           top: BorderSide(width: 1, color: Color(0xFF454C54)),
           right: BorderSide(color: Color(0xFF454C54)),
           bottom: BorderSide(color: Color(0xFF454C54)),
         ),
-        boxShadow: [
+        boxShadow:const [
           BoxShadow(
             color: Color(0x261B98D6),
             blurRadius: 30,
@@ -33,10 +33,13 @@ class CreateWallet extends StatelessWidget {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+
         children: [
           Padding(
             padding:EdgeInsets.only(top:30.h,),
-            child: Text('Create Wallet',style: AppConst.appCreateWallet,),
+            child: Center(child: Text('Create Wallet',style: AppConst.appCreateWallet,)),
           ),
           Padding(
             padding:EdgeInsets.only(top: 30.h),
@@ -56,7 +59,7 @@ class CreateWallet extends StatelessWidget {
                 width: 330.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  gradient: LinearGradient(
+                  gradient:const LinearGradient(
                     begin: Alignment(1.00, 0.00),
                     end: Alignment(-1, 0),
                     colors: [Color(0xFF1B9CD9), Color(0xFF2A41A2)],
