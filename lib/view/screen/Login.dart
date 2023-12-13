@@ -8,6 +8,7 @@ import 'package:hisab/view/widgets/app_header.dart';
 import 'package:hisab/view/widgets/divider.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/customBottomNavBar.dart';
 import '../widgets/custom_text_from_field.dart';
 
 class LoginPage extends StatefulWidget {
@@ -81,10 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.only(top: 40.h),
                       child: InkWell(
                         onTap: () {
-
                             Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (context) => Homepage()),
+                              MaterialPageRoute(builder: (context) => CurvedNavigationBarPage()),
                             );
                           },
                         child: Container(
@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                 await ap.signInWithGoogle();
                 Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => Profile()),
+                MaterialPageRoute(builder: (context) => CurvedNavigationBarPage()),
                 );
                 print("Successfully signed in");
                 print("User details:");
