@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/provider/auth_provider.dart';
+import 'package:hisab/provider/bottomNavigationBarProvider.dart';
 import 'package:hisab/provider/noteProvider.dart';
 import 'package:hisab/view/screen/Login.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ void main() async{
       MultiProvider(providers: [
         ChangeNotifierProvider<AuthProvider>(create: (context)=>AuthProvider()),
         ChangeNotifierProvider<NotesProvider>(create:(context)=>NotesProvider()),
+        ChangeNotifierProvider(create: (context) => BottomNavigationBarProvider()),
 
       ],child: const Myapp(),
       )

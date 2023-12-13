@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/provider/noteProvider.dart';
+import 'package:hisab/utils/app_constant.dart';
 import 'package:provider/provider.dart';
 import '../widgets/notesDetails.dart';
 class Note extends StatelessWidget {
@@ -10,8 +12,14 @@ class Note extends StatelessWidget {
     final notesProvider = Provider.of<NotesProvider>(context);
 
     return Scaffold(
+      backgroundColor: AppConst.appBackgroundColor,
       appBar: AppBar(
-        title: Text('Notes'),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        title: Padding(
+          padding: EdgeInsets.only(left: 10.w),
+          child:  Text('Notes',style: AppConst.appTextStyle,),
+        ),
       ),
       body: ListView.builder(
         itemCount: notesProvider.notes.length,
