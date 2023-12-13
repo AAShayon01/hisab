@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hisab/demotest/testuserdata.dart';
 import 'package:hisab/provider/auth_provider.dart';
 import 'package:hisab/utils/app_constant.dart';
 import 'package:hisab/view/screen/homepage.dart';
@@ -11,14 +10,14 @@ import 'package:provider/provider.dart';
 
 import '../widgets/custom_text_from_field.dart';
 
-class Login_Page extends StatefulWidget {
-  const Login_Page({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<Login_Page> createState() => _Login_PageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _Login_PageState extends State<Login_Page> {
+class _LoginPageState extends State<LoginPage> {
   final _formKey1 = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passWordController = TextEditingController();
@@ -54,7 +53,7 @@ class _Login_PageState extends State<Login_Page> {
             Form(
               key: _formKey1,
               child: Padding(
-                padding: EdgeInsets.only(top:100.h ),
+                padding: EdgeInsets.only(top:65.h ),
                 child:
                 //Custom_TFormField(emailController: _emailController),
                 Column(
@@ -79,19 +78,15 @@ class _Login_PageState extends State<Login_Page> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 50.h),
+                      padding: EdgeInsets.only(top: 40.h),
                       child: InkWell(
                         onTap: () {
-                            // await ap.signInWithGoogle();
-                            // Navigator.pushReplacement(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => Profile()),
-                            // );
-                          },
 
-                        // {
-                        //  await ap.signInWithGoogle();
-                        // },
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => Homepage()),
+                            );
+                          },
                         child: Container(
                           width: 330.w,height: 42.h,
                           decoration: BoxDecoration(
@@ -111,10 +106,10 @@ class _Login_PageState extends State<Login_Page> {
               ),
             ),
            Padding(
-             padding: EdgeInsets.only(top: 60.h,right: 28.w,left: 29.w),
+             padding: EdgeInsets.only(top: 30.h,right: 28.w,left: 29.w),
              child: const AppDivider(dividerText: 'Or'),
            ),
-            Padding(padding: EdgeInsets.only(top:50.h ),
+            Padding(padding: EdgeInsets.only(top:30.h ),
 
             child: InkWell(
               child: Container(
@@ -138,7 +133,7 @@ class _Login_PageState extends State<Login_Page> {
                 await ap.signInWithGoogle();
                 Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => DemoDataView()),
+                MaterialPageRoute(builder: (context) => Profile()),
                 );
                 print("Successfully signed in");
                 print("User details:");

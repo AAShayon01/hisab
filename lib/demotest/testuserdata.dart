@@ -50,7 +50,7 @@ class DemoDataView extends StatelessWidget {
           onPressed: () async {
             await ap.signOut();
             // Replace with your desired navigation logic
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login_Page()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
           },
           child: const Text('Sign Out'),
                       ),

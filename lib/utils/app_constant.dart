@@ -29,6 +29,9 @@ class AppConst{
   static TextStyle appMonthNameTextStyle=TextStyle(
     fontSize: 18.sp,color:const Color(0xffffffff),fontWeight: FontWeight.w400
   );
+  static TextStyle appCreateWallet=TextStyle(
+      fontSize: 18.sp,color:const Color(0xffffffff),fontWeight: FontWeight.w700
+  );
   static TextStyle hisabTextStyle=TextStyle(
     color: const Color(0xffffffff),
     fontSize: 14.sp,

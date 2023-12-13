@@ -1,10 +1,10 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/utils/app_constant.dart';
 import 'package:hisab/view/widgets/custom_text_from_field.dart';
 import 'package:provider/provider.dart';
 
+import '../../generated/assets.dart';
 import '../../provider/auth_provider.dart';
 import '../widgets/profileDetails.dart';
 class Profile extends StatefulWidget {
@@ -181,18 +181,19 @@ class _ProfileState extends State<Profile> {
                 width: 150.w,
                 child: CircleAvatar(
                   backgroundImage: NetworkImage(
-                      ap.user !=null ?"${ap.user!.photoURL}" :
-                      'assets/icon/user.png'),
+                      ap.user?.photoURL !=null ?
+                      "${ap.user?.photoURL}" :
+                      Assets.iconUser),
                 ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child:  ProfileDetails(yourFieldText: 'Name', text: '${ap.user!.displayName}'),
+              child:  ProfileDetails(yourFieldText: 'Name', text: '${ap.user?.displayName}'),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child:  ProfileDetails(yourFieldText: 'Email', text: '${ap.user!.email}'),
+              child:  ProfileDetails(yourFieldText: 'Email', text: '${ap.user?.email}'),
             ),
             Align(
               alignment: Alignment.topRight,

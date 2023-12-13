@@ -4,6 +4,8 @@ import 'package:hisab/utils/app_constant.dart';
 import 'package:hisab/view/screen/chart.dart';
 import 'package:hisab/view/screen/note.dart';
 import 'package:hisab/view/screen/profile.dart';
+
+import '../widgets/createWallet.dart';
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -12,10 +14,16 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
+// bool createWallet=false;
+// void walletcreate(){
+//   setState(() {
+//     createWallet=!createWallet;
+//   });
+// }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: AppConst.appBackgroundColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -91,24 +99,42 @@ class _HomepageState extends State<Homepage> {
                 ),
           ),
           Positioned(
-              left: 205.w,
+              left: 200.w,
               top: 114.h,
-              child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5)
-                  ),
-                  height:42.h,width: 152.w,
-                  child: ElevatedButton(onPressed: (){},
-                      child:Row( mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Create Wallet',style: AppConst.appButtonTextStyle,),
-                          Padding(
-                            padding: EdgeInsets.only(left:5.w),
-                            child: Text('+',style: TextStyle(fontSize: 17.sp),),
-                          )
-                        ],
+              child: InkWell(
+                onTap: (){
+                  showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CreateWallet();
+                    },
+                  );
+                },
+                child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      gradient:const LinearGradient(
+                          begin:  Alignment(0.71, -0.71),
+                          end:  Alignment(-0.71, 0.71),
+                          colors:  [Color(0xFF1B99D7), Color(0xFF2943A3)]
+                      ),
+                    ),
+                    height:42.h,width: 152.w,
+                    child: Row( mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Create Wallet',style: AppConst.appButtonTextStyle,),
+                        Padding(
+                          padding: EdgeInsets.only(left:5.w),
+                          child: Text('+',style: TextStyle(fontSize: 17.sp),),
+                        )
+                      ],
 
-                      )))),
+                    )),
+              )),
+          // createWallet ? Positioned(top: 185.h,left: 0,right: 0,child: Container(
+          //   height: 200.h,
+          //   width: double.infinity,
+          // )):SizedBox.shrink(),
           Positioned(top: 185.h,child: Container(height:271.h,width: 390.w,color: Colors.blueGrey,
           child: Padding(
             padding: EdgeInsets.only(left:10.w,top: 10.h),
@@ -251,6 +277,7 @@ class _HomepageState extends State<Homepage> {
     );
   }
 }
+
 
 
 
