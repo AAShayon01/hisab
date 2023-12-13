@@ -1,9 +1,11 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hisab/generated/assets.dart';
 import 'package:hisab/utils/app_constant.dart';
 import 'package:hisab/view/widgets/custom_text_from_field.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/auth_provider.dart';
 import '../widgets/profileDetails.dart';
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -22,6 +24,7 @@ class _ProfileState extends State<Profile> {
   }
   @override
   Widget build(BuildContext context) {
+    final ap=Provider.of<AuthProvider>(context);
     // return Scaffold(
     //   backgroundColor: AppConst.appBackgroundColor,
     //   appBar: AppBar(
@@ -149,6 +152,14 @@ class _ProfileState extends State<Profile> {
     //     ],
     //   ),
     // );
+    // log('*********${ap.user!.phoneNumber}************ ');
+    // log('*********${ap.user!.uid}************ ');
+    // log('*********${ap.user!.isAnonymous}************ ');
+    // log('*********${ap.user!.displayName}************ ');
+    // log('*********${ap.user!.refreshToken}************ ');
+    // log('*********${ap.user!.phoneNumber}************ ');
+    // log('*********${ap.user!.phoneNumber}************ ');
+    // log('*********${ap.user!.phoneNumber}************ ');
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -169,17 +180,19 @@ class _ProfileState extends State<Profile> {
                 height: 150.h,
                 width: 150.w,
                 child: CircleAvatar(
-                  backgroundImage: AssetImage(Assets.iconUser),
+                  backgroundImage: NetworkImage(
+                      ap.user !=null ?"${ap.user!.photoURL}" :
+                      'assets/icon/user.png'),
                 ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: const ProfileDetails(yourFieldText: 'Name', text: 'User Name'),
+              child:  ProfileDetails(yourFieldText: 'Name', text: '${ap.user!.displayName}'),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: const ProfileDetails(yourFieldText: 'Email', text: 'example@gmail.com'),
+              child:  ProfileDetails(yourFieldText: 'Email', text: '${ap.user!.email}'),
             ),
             Align(
               alignment: Alignment.topRight,

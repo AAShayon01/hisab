@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hisab/demotest/testuserdata.dart';
 import 'package:hisab/provider/auth_provider.dart';
 import 'package:hisab/utils/app_constant.dart';
 import 'package:hisab/view/screen/homepage.dart';
+import 'package:hisab/view/screen/profile.dart';
 import 'package:hisab/view/widgets/app_header.dart';
 import 'package:hisab/view/widgets/divider.dart';
 import 'package:provider/provider.dart';
@@ -62,7 +64,7 @@ class _Login_PageState extends State<Login_Page> {
                       yourFieldText:'Email',
                       keyBoardType: TextInputType.emailAddress,
                       hintText:'Enter Your Email',
-                      onchanged: (value)=>ap.setEmail(value),
+                      // onchanged: (value)=>ap.setEmail(value),
                       // errorsText: ap.isEmailValid()?null :'Invalid Email',
                     ),
                     Padding(
@@ -72,23 +74,35 @@ class _Login_PageState extends State<Login_Page> {
                           yourFieldText: 'Password',
                           keyBoardType:TextInputType.visiblePassword,
                           hintText:'Enter your Password',
-                        onchanged: (value)=>ap.setPassword(value),
+                        // onchanged: (value)=>ap.setPassword(value),
                         // errorsText: ap.isPasswordValid()? null:'invalid password',
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 50.h),
-                      child: SizedBox(
-                        width: 330.w,height: 42.h,
-                        child: ElevatedButton(onPressed: (){
-                          // if(ap.email.isNotEmpty && ap.isPasswordValid()){
-                          //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
-                          // }
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
+                      child: InkWell(
+                        onTap: () {
+                            // await ap.signInWithGoogle();
+                            // Navigator.pushReplacement(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => Profile()),
+                            // );
+                          },
 
-                        },
-                            child: Text('Submit',style:AppConst.appTFFStyle),
-                      ),
+                        // {
+                        //  await ap.signInWithGoogle();
+                        // },
+                        child: Container(
+                          width: 330.w,height: 42.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                                begin:  Alignment(0.71, -0.71),
+                                end:  Alignment(-0.71, 0.71),
+                                colors:  [Color(0xFF1B99D7), Color(0xFF2943A3)]
+                            ),),
+                          child: Center(child: Text('Submit',style:AppConst.appTFFStyle)),
+                        ),
                       ),
                     ),
                   ],
@@ -120,7 +134,25 @@ class _Login_PageState extends State<Login_Page> {
                   ],
                 ),
               ),
-              onTap: (){},
+                onTap: () async{
+                await ap.signInWithGoogle();
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => DemoDataView()),
+                );
+                print("Successfully signed in");
+                print("User details:");
+                print("Name: ${ap.user!.displayName}");
+                print("Email: ${ap.user!.email}");
+                print("Email Verified: ${ap.user!.emailVerified}");
+                print("Anonymous: ${ap.user!.isAnonymous}");
+                print("Phone Number: ${ap.user!.phoneNumber}");
+                print("ID Token: ${ap.user!.getIdToken()}");
+                print("Metadata: ${ap.user!.metadata.toString()}");
+                print("Refresh Token: ${ap.user!.refreshToken}");
+                print("Tenant ID: ${ap.user!.tenantId}");
+                print("UID: ${ap.user!.uid}");
+                },
             ),
             )
           ],

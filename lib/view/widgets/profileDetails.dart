@@ -15,7 +15,7 @@ class ProfileDetails extends StatelessWidget {
   @ override
   Widget build(BuildContext context) {
     return Container(
-      height: 78.h,
+      height: 82.h,
       width: 360.w,
       margin: EdgeInsets.only(left: 15.w,right: 15.w),
       child: Column(
