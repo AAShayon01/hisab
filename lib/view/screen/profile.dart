@@ -168,7 +168,7 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Colors.transparent,
         title: Padding(
           padding: EdgeInsets.only(left: 10.w),
-          child: const Text('Profile'),
+          child:  Text('Profile',style: AppConst.appTextStyle,),
         ),
       ),
       body: SingleChildScrollView(
