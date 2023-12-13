@@ -17,12 +17,12 @@ class CreateWallet extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color(0xFF212427),
         borderRadius: BorderRadius.circular(20),
-        // border: Border.only(
-        //   left: BorderSide(color: Color(0xFF454C54)),
-        //   top: BorderSide(width: 1, color: Color(0xFF454C54)),
-        //   right: BorderSide(color: Color(0xFF454C54)),
-        //   bottom: BorderSide(color: Color(0xFF454C54)),
-        // ),
+        border: Border(
+          left: BorderSide(color: Color(0xFF454C54)),
+          top: BorderSide(width: 1, color: Color(0xFF454C54)),
+          right: BorderSide(color: Color(0xFF454C54)),
+          bottom: BorderSide(color: Color(0xFF454C54)),
+        ),
         boxShadow: [
           BoxShadow(
             color: Color(0x261B98D6),
