@@ -131,7 +131,7 @@ class CurvedNavigationBarPage extends StatelessWidget {
         builder: (context, provider, child) {
           return IndexedStack(
             index: provider.currentIndex,
-            children: const [
+            children:  [
               Homepage(),
               Note(),
               Chart(),
