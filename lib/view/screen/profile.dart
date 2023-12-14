@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../generated/assets.dart';
 import '../../provider/auth_provider.dart';
 import '../widgets/profileDetails.dart';
+import 'Login.dart';
 class Profile extends StatefulWidget {
   const Profile({super.key});
 
@@ -174,6 +175,16 @@ class _ProfileState extends State<Profile> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Align(
+              alignment: Alignment.topRight,
+              child:  ElevatedButton(
+                onPressed: () async {
+                  await ap.signOut();
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                },
+                child: const Text('Sign Out'),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.only(top: 25.h, left: 115.w, right: 115.w),
               child: Container(

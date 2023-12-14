@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/utils/app_constant.dart';
-import 'package:hisab/view/screen/chart.dart';
 import 'package:hisab/view/screen/note.dart';
-import 'package:hisab/view/screen/profile.dart';
+import 'package:hisab/view/widgets/circularProgressIndicator.dart';
 
 import '../widgets/createWallet.dart';
 class Homepage extends StatefulWidget {
@@ -14,12 +13,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-// bool createWallet=false;
-// void walletcreate(){
-//   setState(() {
-//     createWallet=!createWallet;
-//   });
-// }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +23,7 @@ class _HomepageState extends State<Homepage> {
         backgroundColor: Colors.transparent,
         title: Padding(
           padding: EdgeInsets.only(left: 10.w),
-          child: const Text('Total Hishab'),
+          child:Text('Total Hishab',style: AppConst.appTextStyle,),
         ),
       ),
       body: Stack(
@@ -137,10 +130,6 @@ class _HomepageState extends State<Homepage> {
 
                     )),
               )),
-          // createWallet ? Positioned(top: 185.h,left: 0,right: 0,child: Container(
-          //   height: 200.h,
-          //   width: double.infinity,
-          // )):SizedBox.shrink(),
           Positioned(top: 185.h,child: Container(height:271.h,width: 390.w,color: Colors.blueGrey,
           child: Padding(
             padding: EdgeInsets.only(left:10.w,top: 10.h),
@@ -152,126 +141,190 @@ class _HomepageState extends State<Homepage> {
 
                 Padding(
                   padding: EdgeInsets.only(top:20.h),
+                    child: Row(
+                      children: [
+                        // Container(
+                        //   height: 150.h,
+                        //   child: Stack(
+                        //     children: [
+                        //       Image.asset('assets/icon/blue circle.png',height: 100.h,width: 100.w,),
+                        //       Positioned(
+                        //           top: 45.h,left: 35.w,
+                        //           child: Text('25000')
+                        //       ),
+                        //       Positioned(
+                        //         left: 10,top:134,
+                        //           child: Text('Money Added',style: AppConst.hisabTextStyle,)
+                        //       ),
+                        //       Positioned(
+                        //         top: 150,left: 87,
+                        //         child: Container(
+                        //           width: 12.w,
+                        //           height: 2.h,
+                        //           color: Colors.blue,
+                        //         ),
+                        //       )
+                        //     ],
+                        //   ),
+                        // ),
+                        // Padding(
+                        //   padding: EdgeInsets.only(left:20.w),
+                        //   child: SizedBox(
+                        //     height: 150.h,
+                        //     child: Stack(
+                        //       children: [
+                        //         Image.asset('assets/icon/red circle.png',height: 100.h,width: 100.w,),
+                        //         Positioned(
+                        //             top: 45.h,left: 35.w,
+                        //             child: Text('25000')),
+                        //         Positioned(top:114.h,left: 30.w,child: Text('Expanse',style: AppConst.hisabTextStyle,)),
+                        //         Positioned(
+                        //           top: 150,left: 77,
+                        //           child: Container(
+                        //             width: 12.w,
+                        //             height: 2.h,
+                        //             color: Colors.red,
+                        //           ),
+                        //         )
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
+                        // Padding(
+                        //   padding: EdgeInsets.only(left:20.w),
+                        //   child: Container(
+                        //     height: 150.h,
+                        //     child: Stack(
+                        //       children: [
+                        //         Image.asset('assets/icon/green circle.png',height: 100.h,width: 100.w,),
+                        //         Positioned(
+                        //             top: 45.h,left: 35.w,
+                        //             child: Text('25000')),
+                        //         Positioned(top:114.h,left:0.w,child: Text('Available Balance',style: AppConst.hisabTextStyle,)),
+                        //         Positioned(
+                        //           top: 150,left: 101,
+                        //           child: Container(
+                        //             width: 12.w,
+                        //             height: 2.h,
+                        //             color: Colors.green,
+                        //           ),
+                        //         )
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
+                        Padding(
+                          padding:EdgeInsets.only(left: 0.w),
+                          child: RingProgressWidget(addMoney: 10000,color:Colors.blueAccent),
+                        ),
+                        Padding(
+                          padding:EdgeInsets.only(left: 20.w),
+                          child:RingProgressWidget(addMoney: 5000,color:Colors.redAccent),
+                        ),
+                        Padding(
+                          padding:EdgeInsets.only(left: 20.w),
+                          child:RingProgressWidget(addMoney: 5000,color:Colors.greenAccent),
+                        ),
+
+                      ],
+                    ),
+                ),
+                Padding(padding: EdgeInsets.only(top: 10.h),
+                child:Row(
+                  children: [
+                    Padding(
+                      padding:EdgeInsets.only(left: 8.w),
+                      child: Text('Monthly Added',style: AppConst.hisabTextStyle, ),
+                    ),
+                    Padding(
+                      padding:EdgeInsets.only(left: 50.w),
+                      child: Text('Expanse',style: AppConst.hisabTextStyle, ),
+                    ),
+                    Padding(
+                      padding:EdgeInsets.only(left: 40.w),
+                      child: Text('Available Balance',style: AppConst.hisabTextStyle, ),
+                    ),
+                  ],
+                ) ,
+                ),
+                Padding(padding: EdgeInsets.only(top: 1.h),
+                child: Row(
+                  children: [
+                  Padding(
+                    padding: EdgeInsets.only(left:80.w),
+                    child: Container(
+                              width: 15.w,
+                              height: 2.h,
+                              color: Colors.blue,
+                            ),
+                  ),  Padding(
+                      padding: EdgeInsets.only(left:84.w),
+                      child: Container(
+                        width: 15.w,
+                        height: 2.h,
+                        color: Colors.red,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left:127.w),
+                      child: Container(
+                        width: 15.w,
+                        height: 2.h,
+                        color: Colors.green,
+                      ),
+                    )
+                  ],
+                ),
+                ),
+
+                
+                Padding(
+                  padding: EdgeInsets.only(top: 27.h),
                   child: Row(
                     children: [
-                      Container(
-                        height: 150.h,
-                        child: Stack(
-                          children: [
-                            Image.asset('assets/icon/red circle.png',height: 100.h,width: 100.w,),
-                            Positioned(
-                                top: 45.h,left: 35.w,
-                                child: Text('25000')
+                      Padding(
+                        padding:EdgeInsets.only(left: 10.w),
+                        child: InkWell(
+                          child: Container(
+                            height: 42.h,
+                            width: 152.w,
+
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color:Color(0xFF2B2F33),
                             ),
-                            Positioned(
-                              left: 10,top:134,
-                                child: Text('Money Added',style: AppConst.hisabTextStyle,)
+                            child: Center(
+                              child: Text('View',style: AppConst.appButtonTextStyle,),
                             ),
-                            Positioned(
-                              top: 150,left: 87,
-                              child: Container(
-                                width: 12.w,
-                                height: 2.h,
-                                color: Colors.blue,
+                          ),
+                          onTap: (){},
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20.w),
+                        child: InkWell(
+                          child: Container(
+                            height: 42.h,
+                            width: 152.w,
+
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              gradient: LinearGradient(
+                                begin:  Alignment(0.71, -0.71),
+                                end:  Alignment(-0.71, 0.71),
+                                colors:  [Color(0xFF1B99D7), Color(0xFF2943A3)]
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left:20.w),
-                        child: SizedBox(
-                          height: 150.h,
-                          child: Stack(
-                            children: [
-                              Image.asset('assets/icon/red circle.png',height: 100.h,width: 100.w,),
-                              Positioned(
-                                  top: 45.h,left: 35.w,
-                                  child: Text('25000')),
-                              Positioned(top:114.h,left: 30.w,child: Text('Expanse',style: AppConst.hisabTextStyle,)),
-                              Positioned(
-                                top: 150,left: 77,
-                                child: Container(
-                                  width: 12.w,
-                                  height: 2.h,
-                                  color: Colors.red,
-                                ),
-                              )
-                            ],
+                            ),
+                            child: Center(
+                              child: Text('Add Expanse +',style: AppConst.appButtonTextStyle,),
+                            ),
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left:20.w),
-                        child: Container(
-                          height: 150.h,
-                          child: Stack(
-                            children: [
-                              Image.asset('assets/icon/red circle.png',height: 100.h,width: 100.w,),
-                              Positioned(
-                                  top: 45.h,left: 35.w,
-                                  child: Text('25000')),
-                              Positioned(top:114.h,left:0.w,child: Text('Available Balance',style: AppConst.hisabTextStyle,)),
-                              Positioned(
-                                top: 150,left: 101,
-                                child: Container(
-                                  width: 12.w,
-                                  height: 2.h,
-                                  color: Colors.green,
-                                ),
-                              )
-                            ],
-                          ),
+                          onTap: (){Navigator.push(context, MaterialPageRoute(builder:(context) => Note() ));},
                         ),
                       ),
 
                     ],
                   ),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding:EdgeInsets.only(left: 10.w),
-                      child: InkWell(
-                        child: Container(
-                          height: 42.h,
-                          width: 152.w,
-
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color:Color(0xFF2B2F33),
-                          ),
-                          child: Center(
-                            child: Text('View',style: AppConst.appButtonTextStyle,),
-                          ),
-                        ),
-                        onTap: (){},
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.w),
-                      child: InkWell(
-                        child: Container(
-                          height: 42.h,
-                          width: 152.w,
-
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            gradient: LinearGradient(
-                              begin:  Alignment(0.71, -0.71),
-                              end:  Alignment(-0.71, 0.71),
-                              colors:  [Color(0xFF1B99D7), Color(0xFF2943A3)]
-                            ),
-                          ),
-                          child: Center(
-                            child: Text('Add Expanse +',style: AppConst.appButtonTextStyle,),
-                          ),
-                        ),
-                        onTap: (){Navigator.push(context, MaterialPageRoute(builder:(context) => Note() ));},
-                      ),
-                    ),
-
-                  ],
                 )
               ],
             ),
