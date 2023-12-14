@@ -14,6 +14,11 @@ class AppConst{
     fontWeight: FontWeight.w400,
     fontSize: 14.sp,
   );
+  static TextStyle appTableDataStyle=TextStyle(
+    color: const Color(0xFFffffff),
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+  );
   static TextStyle appTextStyle=TextStyle(
     color: const Color(0xffffffff),
     fontSize: 16.sp,
@@ -24,6 +29,12 @@ class AppConst{
     color: const Color(0xffffffff),
     fontSize: 14.sp,
     fontWeight: FontWeight.w700,
+    height: 0,
+  );
+  static TextStyle appTableHeaderTextStyle=TextStyle(
+    color: const Color(0xffffffff),
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
     height: 0,
   );
   static TextStyle appMonthNameTextStyle=TextStyle(

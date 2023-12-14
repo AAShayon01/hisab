@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/utils/app_constant.dart';
 import 'package:hisab/view/screen/note.dart';
+import 'package:hisab/view/widgets/aDDExpanse.dart';
 import 'package:hisab/view/widgets/circularProgressIndicator.dart';
+import 'package:hisab/view/widgets/viewDetails.dart';
 
 import '../widgets/createWallet.dart';
 class Homepage extends StatefulWidget {
@@ -17,10 +19,10 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppConst.appBackgroundColor,
+      backgroundColor: AppConst.appTFFBorderColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppConst.appBackgroundColor,
         title: Padding(
           padding: EdgeInsets.only(left: 10.w),
           child:Text('Total Hishab',style: AppConst.appTextStyle,),
@@ -29,12 +31,18 @@ class _HomepageState extends State<Homepage> {
       body: Stack(
         children: [
           Positioned(
-            top: 10.h,
+            top: 0.h,
             left: 0.w,
             right: 0.w,
             child: Container(
               height: 125.h,
-                  color: Colors.red,
+                  decoration:BoxDecoration(
+                    color: AppConst.appBackgroundColor,
+                   borderRadius: BorderRadius.only(
+                     bottomLeft: Radius.circular(9),
+                     bottomRight: Radius.circular(9),
+                   )
+                  ) ,
                   child: Padding(
                     padding: EdgeInsets.only(left: 15.w,top: 10.h),
                     child: Column(
@@ -47,9 +55,11 @@ class _HomepageState extends State<Homepage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Total Money Added',style: AppConst.appTextStyle,),
+                              Container(
+                                  width: 148.w,
+                                  child: Text('Total Money Added',style: AppConst.appTextStyle,)),
                               Text(' : ',style: AppConst.appTextStyle,),
-                              Text(" totalmoney  ",style: AppConst.appTextStyle,),
+                              Text(" 20000 ",style: AppConst.appTextStyle,),
                               Container(width: 1.w,color: Colors.blue,)
                             ],
                           ),
@@ -62,9 +72,10 @@ class _HomepageState extends State<Homepage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text('Total Money Added',style: AppConst.appTextStyle,),
+                                Container(
+                                    width:148.w,child: Text('Total Expanse',style: AppConst.appTextStyle,)),
                                 Text(' : ',style: AppConst.appTextStyle,),
-                                Text(" totalmoney  ",style: AppConst.appTextStyle,),
+                                Text(" 10000  ",style: AppConst.appTextStyle,),
                                 Container(width: 1.w,color: Colors.red,)
                               ],
                             ),
@@ -78,9 +89,11 @@ class _HomepageState extends State<Homepage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text('Total Money Added',style: AppConst.appTextStyle,),
+                                Container(
+                                    width: 148.w,
+                                    child: Text('Available Balance',style: AppConst.appTextStyle,)),
                                 Text(' : ',style: AppConst.appTextStyle,),
-                                Text(" totalmoney  ",style: AppConst.appTextStyle,),
+                                Text(" 10000  ",style: AppConst.appTextStyle,),
                                 Container(width: 1.w,color: Colors.green,)
                               ],
                             ),
@@ -130,7 +143,8 @@ class _HomepageState extends State<Homepage> {
 
                     )),
               )),
-          Positioned(top: 185.h,child: Container(height:271.h,width: 390.w,color: Colors.blueGrey,
+          Positioned(top: 185.h,
+              child: Container(height:271.h,width: 390.w,color: AppConst.appTFFBorderColor,
           child: Padding(
             padding: EdgeInsets.only(left:10.w,top: 10.h),
             child: Column(
@@ -292,12 +306,15 @@ class _HomepageState extends State<Homepage> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color:Color(0xFF2B2F33),
+                              border: Border.all(width: 1,color: Colors.blue)
                             ),
                             child: Center(
                               child: Text('View',style: AppConst.appButtonTextStyle,),
                             ),
                           ),
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ExpanseDetails()));
+                          },
                         ),
                       ),
                       Padding(
@@ -319,7 +336,18 @@ class _HomepageState extends State<Homepage> {
                               child: Text('Add Expanse +',style: AppConst.appButtonTextStyle,),
                             ),
                           ),
-                          onTap: (){Navigator.push(context, MaterialPageRoute(builder:(context) => Note() ));},
+                          onTap: (){  showModalBottomSheet<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return SingleChildScrollView(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      bottom: MediaQuery.of(context).viewInsets.bottom ),
+                                  child: AddExpanse(),
+                                ),
+                              );
+                            },
+                          );},
                         ),
                       ),
 
