@@ -15,7 +15,7 @@ class AddExpanse extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 360.w,
-      height: 610.h,
+      height: 598.h,
       decoration: BoxDecoration(
         color:const Color(0xFF212427),
         borderRadius: BorderRadius.circular(20),

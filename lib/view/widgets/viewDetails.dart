@@ -27,7 +27,7 @@ class ExpanseDetails extends StatelessWidget {
                   top: 0,left: 0,right: 0,
                   child: Container(
                     height: 125.h,
-                    decoration:const BoxDecoration(
+                    decoration:BoxDecoration(
                         color: Color(0xFF141313),
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(9),
@@ -40,7 +40,7 @@ class ExpanseDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          Container(
                             height: 19.h,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,7 +141,7 @@ class ExpanseDetails extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top:20.h,left: 15.w,right: 15.w),
             child: Container(
-              height: 150.h,
+              height: 135.h,
               decoration:BoxDecoration(
                   // color: AppConst.appBackgroundColor,
                 color: Color(0xFF2B2F33),

@@ -23,14 +23,13 @@ class ExpanseList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding:EdgeInsets.only(left: 15.w,bottom: 9.h),
+              padding:EdgeInsets.only(left: 15.w,bottom: 10.h),
               child: Text('Expanse List',style:TextStyle(
                 color: Colors.white,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700
               ),),
             ),
-            ///Data table upper \\\
             Container(
               height: 42.h,
               width: 360.w,
@@ -67,161 +66,6 @@ class ExpanseList extends StatelessWidget {
                 ],
               ),
             ),
-            // Padding(
-            //   padding:EdgeInsets.only(top: 10.h),
-            //   child: Container(
-            //     height:32.h,
-            //     color: Color(0xFF2B2F33),
-            //     child: Row(
-            //       children: [
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 23.w),
-            //           child: SizedBox(
-            //               width: 143.w,
-            //               child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(
-            //               width: 25.w,
-            //               child: Text('50',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left:45.w),
-            //           child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // Padding(
-            //   padding:EdgeInsets.only(top: 10.h),
-            //   child: Container(
-            //     height:32.h,
-            //     color: Color(0xFF2B2F33),
-            //     child: Row(
-            //       children: [
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 23.w),
-            //           child: SizedBox(
-            //               width: 143.w,
-            //               child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(
-            //               width: 25.w,
-            //               child: Text('50',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left:45.w),
-            //           child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // Padding(
-            //   padding:EdgeInsets.only(top: 10.h),
-            //   child: Container(
-            //     height:32.h,
-            //     color: Color(0xFF2B2F33),
-            //     child: Row(
-            //       children: [
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 23.w),
-            //           child: SizedBox(
-            //               width: 143.w,
-            //               child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(
-            //               width: 25.w,
-            //               child: Text('50',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left:40.w),
-            //           child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // Padding(
-            //   padding:EdgeInsets.only(top: 10.h),
-            //   child: Container(
-            //     height:32.h,
-            //     color: Color(0xFF2B2F33),
-            //     child: Row(
-            //       children: [
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 23.w),
-            //           child: SizedBox(
-            //               width: 143.w,
-            //               child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(
-            //               width: 25.w,
-            //               child: Text('50',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left:40.w),
-            //           child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // Padding(
-            //   padding:EdgeInsets.only(top: 10.h),
-            //   child: Container(
-            //     height:32.h,
-            //     color: Color(0xFF2B2F33),
-            //     child: Row(
-            //       children: [
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding:EdgeInsets.only(left: 23.w),
-            //           child: SizedBox(
-            //               width: 143.w,
-            //               child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left: 10.w),
-            //           child: SizedBox(
-            //               width: 25.w,
-            //               child: Text('50',style: AppConst.appTableDataStyle,)),
-            //         ),
-            //         Padding(
-            //           padding: EdgeInsets.only(left:40.w),
-            //           child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding:EdgeInsets.only(top: 10.h),
               child: Container(
@@ -246,7 +90,162 @@ class ExpanseList extends StatelessWidget {
                           child: Text('50',style: AppConst.appTableDataStyle,)),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left:40.w),
+                      padding: EdgeInsets.only(left:45.w),
+                      child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding:EdgeInsets.only(top: 10.h),
+              child: Container(
+                height:32.h,
+                color: Color(0xFF2B2F33),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding:EdgeInsets.only(left: 10.w),
+                      child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding:EdgeInsets.only(left: 23.w),
+                      child: SizedBox(
+                          width: 143.w,
+                          child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: SizedBox(
+                          width: 25.w,
+                          child: Text('50',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left:45.w),
+                      child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding:EdgeInsets.only(top: 10.h),
+              child: Container(
+                height:32.h,
+                color: Color(0xFF2B2F33),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding:EdgeInsets.only(left: 10.w),
+                      child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding:EdgeInsets.only(left: 23.w),
+                      child: SizedBox(
+                          width: 143.w,
+                          child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: SizedBox(
+                          width: 25.w,
+                          child: Text('50',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left:45.w),
+                      child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding:EdgeInsets.only(top: 10.h),
+              child: Container(
+                height:32.h,
+                color: Color(0xFF2B2F33),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding:EdgeInsets.only(left: 10.w),
+                      child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding:EdgeInsets.only(left: 23.w),
+                      child: SizedBox(
+                          width: 143.w,
+                          child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: SizedBox(
+                          width: 25.w,
+                          child: Text('50',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left:45.w),
+                      child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding:EdgeInsets.only(top: 10.h),
+              child: Container(
+                height:32.h,
+                color: Color(0xFF2B2F33),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding:EdgeInsets.only(left: 10.w),
+                      child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding:EdgeInsets.only(left: 23.w),
+                      child: SizedBox(
+                          width: 143.w,
+                          child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: SizedBox(
+                          width: 25.w,
+                          child: Text('50',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left:45.w),
+                      child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding:EdgeInsets.only(top: 10.h),
+              child: Container(
+                height:32.h,
+                color: Color(0xFF2B2F33),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding:EdgeInsets.only(left: 10.w),
+                      child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding:EdgeInsets.only(left: 23.w),
+                      child: SizedBox(
+                          width: 143.w,
+                          child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: SizedBox(
+                          width: 25.w,
+                          child: Text('50',style: AppConst.appTableDataStyle,)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left:45.w),
                       child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
                     ),
                   ],
