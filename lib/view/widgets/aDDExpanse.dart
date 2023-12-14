@@ -3,17 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/utils/app_constant.dart';
 import 'package:hisab/view/widgets/custom_text_from_field.dart';
 
-class CreateWallet extends StatelessWidget {
-     CreateWallet({
+class AddExpanse extends StatelessWidget {
+  AddExpanse({
     super.key,
   });
   final TextEditingController _categoryName=TextEditingController();
-  final TextEditingController _addBalance=TextEditingController();
+  final TextEditingController _dateTimeController=TextEditingController();
+  final TextEditingController _expanseDescriptionController=TextEditingController();
+  final TextEditingController _addAmount=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 360.w,
-      height: 500.h,
+      height: 610.h,
       decoration: BoxDecoration(
         color:const Color(0xFF212427),
         borderRadius: BorderRadius.circular(20),
@@ -39,15 +41,24 @@ class CreateWallet extends StatelessWidget {
         children: [
           Padding(
             padding:EdgeInsets.only(top:30.h,),
-            child: Center(child: Text('Create Wallet',style: AppConst.appCreateWallet,)),
+            child: Center(child: Text('Add Expanse',style: AppConst.appCreateWallet,)),
           ),
           Padding(
             padding:EdgeInsets.only(top: 30.h),
             child: CustomTextFormField(nameOfController: _categoryName, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
           ),
           Padding(
+            padding:EdgeInsets.only(top: 30.h),
+            child: CustomTextFormField(nameOfController: _dateTimeController, yourFieldText: 'Add Date', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+          ),
+          Padding(
+            padding:EdgeInsets.only(top: 30.h),
+            child: CustomTextFormField(nameOfController: _expanseDescriptionController, yourFieldText: 'Write Expanse Sector', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+          ),
+
+          Padding(
             padding: EdgeInsets.only(top: 30.h),
-            child: CustomTextFormField(nameOfController: _addBalance, yourFieldText: 'Add Balance', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
+            child: CustomTextFormField(nameOfController: _addAmount, yourFieldText: 'Amount', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
           ),
           Padding(padding: EdgeInsets.only(top: 50.h,left:15.w,right: 15.w ),
             child:InkWell(
@@ -58,12 +69,12 @@ class CreateWallet extends StatelessWidget {
                 height: 42.h,
                 width: 330.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  gradient:const LinearGradient(
-                    begin: Alignment(1.00, 0.00),
-                    end: Alignment(-1, 0),
-                    colors: [Color(0xFF1B9CD9), Color(0xFF2A41A2)],
-                  )
+                    borderRadius: BorderRadius.circular(5),
+                    gradient:const LinearGradient(
+                      begin: Alignment(1.00, 0.00),
+                      end: Alignment(-1, 0),
+                      colors: [Color(0xFF1B9CD9), Color(0xFF2A41A2)],
+                    )
                 ),
                 child: Center(child: Text('Create',style: AppConst.appButtonTextStyle,)),
               ),
@@ -71,5 +82,22 @@ class CreateWallet extends StatelessWidget {
         ],
       ),
     );
+    //   Container(
+    //   height: 200,
+    //   color: Colors.amber,
+    //   child: Center(
+    //     child: Column(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       mainAxisSize: MainAxisSize.min,
+    //       children: <Widget>[
+    //         const Text('Modal BottomSheet'),
+    //         ElevatedButton(
+    //           child: const Text('Close BottomSheet'),
+    //           onPressed: () => Navigator.pop(context),
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }
