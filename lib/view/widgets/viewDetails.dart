@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hisab/view/widgets/customBottomNavBar.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/expanseProvider.dart';
 import '../../utils/app_constant.dart';
 import 'ExpanseList.dart';
 import 'aDDExpanse.dart';
+import 'addData.dart';
 import 'createWallet.dart';
 class ExpanseDetails extends StatelessWidget {
   const ExpanseDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dd=Provider.of<DataDialogue>(context,);
+    final ep=Provider.of<ExpenseProvider>(context,);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor:Color(0xFF212427),
@@ -101,18 +107,19 @@ class ExpanseDetails extends StatelessWidget {
                     top: 105.h,
                   child: InkWell(
                     onTap: (){
-                      showModalBottomSheet<void>(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SingleChildScrollView(
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  bottom: MediaQuery.of(context).viewInsets.bottom + 50.h),
-                              child: CreateWallet(),
-                            ),
-                          );
-                        },
-                      );
+                      // showModalBottomSheet<void>(
+                      //   context: context,
+                      //   builder: (BuildContext context) {
+                      //     return SingleChildScrollView(
+                      //       child: Padding(
+                      //         padding: EdgeInsets.only(
+                      //             bottom: MediaQuery.of(context).viewInsets.bottom),
+                      //         child: CreateWallet(),
+                      //       ),
+                      //     );
+                      //   },
+                      // );
+                      dd.showAddMoneyBottomSheet(context);
                     },
                     child: Container(
                       decoration: BoxDecoration(
