@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/view/widgets/customBottomNavBar.dart';
-import 'package:provider/provider.dart';
 
-import '../../provider/expanseProvider.dart';
 import '../../utils/app_constant.dart';
 import 'ExpanseList.dart';
 import 'aDDExpanse.dart';
-import 'addData.dart';
 import 'createWallet.dart';
 class ExpanseDetails extends StatelessWidget {
   const ExpanseDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dd=Provider.of<DataDialogue>(context,);
-    final ep=Provider.of<ExpenseProvider>(context,);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor:Color(0xFF212427),
@@ -33,7 +28,7 @@ class ExpanseDetails extends StatelessWidget {
                   top: 0,left: 0,right: 0,
                   child: Container(
                     height: 125.h,
-                    decoration:BoxDecoration(
+                    decoration:const BoxDecoration(
                         color: Color(0xFF141313),
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(9),
@@ -46,7 +41,7 @@ class ExpanseDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 19.h,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,19 +102,18 @@ class ExpanseDetails extends StatelessWidget {
                     top: 105.h,
                   child: InkWell(
                     onTap: (){
-                      // showModalBottomSheet<void>(
-                      //   context: context,
-                      //   builder: (BuildContext context) {
-                      //     return SingleChildScrollView(
-                      //       child: Padding(
-                      //         padding: EdgeInsets.only(
-                      //             bottom: MediaQuery.of(context).viewInsets.bottom),
-                      //         child: CreateWallet(),
-                      //       ),
-                      //     );
-                      //   },
-                      // );
-                      dd.showAddMoneyBottomSheet(context);
+                      showModalBottomSheet<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return SingleChildScrollView(
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).viewInsets.bottom + 50.h),
+                              child: CreateWallet(),
+                            ),
+                          );
+                        },
+                      );
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -148,7 +142,7 @@ class ExpanseDetails extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top:20.h,left: 15.w,right: 15.w),
             child: Container(
-              height: 135.h,
+              height: 150.h,
               decoration:BoxDecoration(
                   // color: AppConst.appBackgroundColor,
                 color: Color(0xFF2B2F33),
