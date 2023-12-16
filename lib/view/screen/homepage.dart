@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/utils/app_constant.dart';
-import 'package:hisab/view/screen/note.dart';
 import 'package:hisab/view/widgets/aDDExpanse.dart';
 import 'package:hisab/view/widgets/circularProgressIndicator.dart';
 import 'package:hisab/view/widgets/viewDetails.dart';
 import 'package:provider/provider.dart';
-
-import '../../demotest/demoexpanseprovider.dart';
-import '../widgets/createWallet.dart';
+import '../../provider/expanseProvider.dart';
 import '../widgets/custom_text_from_field.dart';
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -414,8 +411,8 @@ class _HomepageState extends State<Homepage> {
     );
   }
   void _showAddMoneyBottomSheet(BuildContext context) {
-    final TextEditingController _categoryName=TextEditingController();
-    final TextEditingController _addBalance=TextEditingController();
+
+    final ep= Provider.of<ExpenseProvider>(context,listen: false);
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -455,11 +452,11 @@ class _HomepageState extends State<Homepage> {
                 ),
                 Padding(
                   padding:EdgeInsets.only(top: 30.h),
-                  child: CustomTextFormField(nameOfController: _categoryName, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                  child: CustomTextFormField(nameOfController: ep.categoryName, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 30.h),
-                  child: CustomTextFormField(nameOfController: _addBalance, yourFieldText: 'Add Balance', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
+                  child: CustomTextFormField(nameOfController: ep.addBalance, yourFieldText: 'Add Balance', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
                 ),
                 Padding(padding: EdgeInsets.only(top: 50.h,left:15.w,right: 15.w ),
                   child:InkWell(
@@ -519,32 +516,6 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-
-// Padding(
-// padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-// child: Column(
-// mainAxisSize: MainAxisSize.min,
-// children: [
-// TextField(
-// controller: amountController,
-// keyboardType: TextInputType.number,
-// decoration: InputDecoration(labelText: 'Enter amount'),
-// ),
-// SizedBox(height: 16),
-// ElevatedButton(
-// onPressed: () {
-// if (amountController.text.isNotEmpty) {
-// double amount = double.parse(amountController.text);
-// Provider.of<ExpenseModel>(context, listen: false).addMoney(amount);
-// Navigator.pop(context); // Close the bottom sheet
-// _showSuccessSnackbar(context, 'Money added successfully');
-// }
-// },
-// child: Text('Add'),
-// ),
-// ],
-// ),
-// )
 
 
 

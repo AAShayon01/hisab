@@ -50,6 +50,8 @@ class ExpenseProvider extends ChangeNotifier {
   List<Expense> _expenses = [];
   double _totalAddedMoney = 0.0;
   double _totalExpense = 0.0;
+  final TextEditingController categoryName=TextEditingController();
+  final TextEditingController addBalance=TextEditingController();
 
   List<Expense> get expenses => List.unmodifiable(_expenses);
   double get totalAddedMoney => _totalAddedMoney;
