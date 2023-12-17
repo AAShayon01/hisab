@@ -13,12 +13,14 @@ class ExpanseList extends StatelessWidget {
     return Container(
       width: 360.w,
       height: 450.h,
-        decoration:const BoxDecoration(
+        decoration:BoxDecoration(
           // color: AppConst.appBackgroundColor,
             color: Color(0xFF212427),
             borderRadius: BorderRadius.only(
               topRight:Radius.circular(10),
               topLeft: Radius.circular(10),
+              // bottomLeft: Radius.circular(9),
+              // bottomRight: Radius.circular(9),
             )
         ),
         child: Column(
@@ -36,7 +38,7 @@ class ExpanseList extends StatelessWidget {
             Container(
               height: 42.h,
               width: 360.w,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
@@ -228,7 +230,7 @@ class ExpanseList extends StatelessWidget {
               padding:EdgeInsets.only(top: 10.h),
               child: Container(
                 height:350.h,
-                color: const Color(0xFF2B2F33),
+                color: Color(0xFF2B2F33),
                 child: ListView.builder(
                   itemCount: ep.totalExpenses.length,
                   itemBuilder: (context ,index){
@@ -257,13 +259,19 @@ class ExpanseList extends StatelessWidget {
                           padding: EdgeInsets.only(left:30.w),
                           child: IconButton(
                               onPressed:(){
+                            // if(!ep.isEditing(ep.totalExpenses[index])){
+                            //   ep.startEditing(ep.totalExpenses[index]);
+                            // }
+                            // else{
+                            //   ep.stopEditing();
+                            // }
                                 if(!ep.isEditing(exp)){
                                   ep.startEditing(exp);
                                 }
                                 else{
                                   ep.stopEditing();
                                 }
-                          }, icon: const Icon(Icons.edit,color: Color(0xffffffff) ,)),
+                          }, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
                         ),
                       ],
                     );

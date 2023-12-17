@@ -11,7 +11,7 @@ class ExpanseDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // String currentMonth = DateFormat('MMMM').format(DateTime.now());
+    String currentMonth = DateFormat('MMMM').format(DateTime.now());
     final dd=Provider.of<DataDialogue>(context,);
     final ep=Provider.of<ExpenseProvider>(context,);
     double totalAmount=ep.getAddedMoney();
@@ -22,7 +22,7 @@ class ExpanseDetails extends StatelessWidget {
       backgroundColor:Color(0xFF212427),
       appBar: AppBar(
         backgroundColor:Color(0xFF141313),
-        title: Text(ep.currentMonth,style: AppConst.appTextStyle,),
+        title: Text(currentMonth,style: AppConst.appTextStyle,),
       ),
       body: Column(
         children: [
