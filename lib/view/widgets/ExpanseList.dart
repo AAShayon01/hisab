@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hisab/provider/expanseProvider.dart';
 import 'package:hisab/utils/app_constant.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 class ExpanseList extends StatelessWidget {
   const ExpanseList({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final ep=Provider.of<ExpenseProvider>(context);
     return Container(
       width: 360.w,
       height: 450.h,
@@ -225,32 +229,61 @@ class ExpanseList extends StatelessWidget {
             Padding(
               padding:EdgeInsets.only(top: 10.h),
               child: Container(
-                height:32.h,
+                height:350.h,
                 color: Color(0xFF2B2F33),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding:EdgeInsets.only(left: 10.w),
-                      child: SizedBox(width:61.w,child: Text('8-11-23',style: AppConst.appTableDataStyle,)),
-                    ),
-                    Padding(
-                      padding:EdgeInsets.only(left: 23.w),
-                      child: SizedBox(
-                          width: 143.w,
-                          child: Text('Breakfast',style: AppConst.appTableDataStyle,)),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10.w),
-                      child: SizedBox(
-                          width: 25.w,
-                          child: Text('50',style: AppConst.appTableDataStyle,)),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left:40.w),
-                      child: IconButton(onPressed:(){}, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
-                    ),
-                  ],
-                ),
+                child: ListView.builder(
+                  itemCount: ep.totalExpenses.length,
+                  itemBuilder: (context ,index){
+                    final exp=ep.totalExpenses[index];
+                    return Row(
+                      children:
+                      [
+                        Padding(
+                          padding:EdgeInsets.only(left: 5.w),
+                          child: SizedBox(width:70.w,
+                              child: Text(DateFormat('y-MM-dd').format(exp.date),style: AppConst.appTableDataStyle,)),
+                        ),
+                        Padding(
+                          padding:EdgeInsets.only(left: 23.w),
+                          child: SizedBox(
+                              width: 143.w,
+                              child: Text(exp.reason,style: AppConst.appTableDataStyle,)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.w),
+                          child: SizedBox(
+                              width: 35.w,
+                              child: Text("${exp.amount}",style: AppConst.appTableDataStyle,)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left:30.w),
+                          child: IconButton(
+                              onPressed:(){
+                            // if(!ep.isEditing(ep.totalExpenses[index])){
+                            //   ep.startEditing(ep.totalExpenses[index]);
+                            // }
+                            // else{
+                            //   ep.stopEditing();
+                            // }
+                                if(!ep.isEditing(exp)){
+                                  ep.startEditing(exp);
+                                }
+                                else{
+                                  ep.stopEditing();
+                                }
+                          }, icon: Icon(Icons.edit,color: Color(0xffffffff) ,)),
+                        ),
+                      ],
+                    );
+                    //   Row(
+                    //   children: [
+                    //
+                    //   ],
+                    // );
+                  },
+
+                )
+
               ),
             ),
           ],

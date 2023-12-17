@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../provider/expanseProvider.dart';
+import 'package:intl/intl.dart';
 import '../../utils/app_constant.dart';
 import 'ExpanseList.dart';
 import 'addData.dart';
@@ -10,14 +11,18 @@ class ExpanseDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String currentMonth = DateFormat('MMMM').format(DateTime.now());
     final dd=Provider.of<DataDialogue>(context,);
     final ep=Provider.of<ExpenseProvider>(context,);
+    double totalAmount=ep.getAddedMoney();
+    double totalExpanse=ep.getTotalExpense();
+    double availableMoney=(totalAmount -totalExpanse);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor:Color(0xFF212427),
       appBar: AppBar(
         backgroundColor:Color(0xFF141313),
-        title: Text('Month Name',style: AppConst.appTextStyle,),
+        title: Text(currentMonth,style: AppConst.appTextStyle,),
       ),
       body: Column(
         children: [
@@ -52,7 +57,7 @@ class ExpanseDetails extends StatelessWidget {
                                     width: 148.w,
                                     child: Text('Money Added',style: AppConst.appTextStyle,)),
                                 Text(' : ',style: AppConst.appTextStyle,),
-                                Text(" 20000 ",style: AppConst.appTextStyle,),
+                                Text(" $totalAmount",style: AppConst.appTextStyle,),
                                 Container(width: 1.w,color: Colors.blue,)
                               ],
                             ),
@@ -68,7 +73,7 @@ class ExpanseDetails extends StatelessWidget {
                                   Container(
                                       width:148.w,child: Text('Total Expanse',style: AppConst.appTextStyle,)),
                                   Text(' : ',style: AppConst.appTextStyle,),
-                                  Text(" 10000  ",style: AppConst.appTextStyle,),
+                                  Text(" $totalExpanse ",style: AppConst.appTextStyle,),
                                   Container(width: 1.w,color: Colors.red,)
                                 ],
                               ),
@@ -86,7 +91,7 @@ class ExpanseDetails extends StatelessWidget {
                                       width: 148.w,
                                       child: Text('Available Balance',style: AppConst.appTextStyle,)),
                                   Text(' : ',style: AppConst.appTextStyle,),
-                                  Text(" 10000  ",style: AppConst.appTextStyle,),
+                                  Text("$availableMoney",style: AppConst.appTextStyle,),
                                   Container(width: 1.w,color: Colors.green,)
                                 ],
                               ),
@@ -133,7 +138,7 @@ class ExpanseDetails extends StatelessWidget {
             padding: EdgeInsets.only(top:20.h,left: 15.w,right: 15.w),
             child: Container(
               height: 150.h,
-              decoration:BoxDecoration(
+              decoration:const BoxDecoration(
                   // color: AppConst.appBackgroundColor,
                 color: Color(0xFF2B2F33),
                   borderRadius: BorderRadius.only(
@@ -167,7 +172,7 @@ class ExpanseDetails extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: 12.h),
-                          child: Text('Month Name',style: AppConst.appMonthNameTextStyle,),
+                          child: Text('Monthly Transaction',style: AppConst.appMonthNameTextStyle,),
                         ),
                         Padding(
                           padding:EdgeInsets.only(top: 10.h),
@@ -181,7 +186,7 @@ class ExpanseDetails extends StatelessWidget {
                                     width: 148.w,
                                     child: Text('Money Added',style: AppConst.appTextStyle,)),
                                 Text(' : ',style: AppConst.appTextStyle,),
-                                Text(" 20000 ",style: AppConst.appTextStyle,),
+                                Text('$totalAmount',style: AppConst.appTextStyle,),
                                 Container(width: 1.w,color: Colors.blue,)
                               ],
                             ),
@@ -198,7 +203,7 @@ class ExpanseDetails extends StatelessWidget {
                                 Container(
                                     width:148.w,child: Text('Total Expanse',style: AppConst.appTextStyle,)),
                                 Text(' : ',style: AppConst.appTextStyle,),
-                                Text(" 10000  ",style: AppConst.appTextStyle,),
+                                Text('$totalExpanse',style: AppConst.appTextStyle,),
                                 Container(width: 1.w,color: Colors.red,)
                               ],
                             ),
@@ -216,7 +221,7 @@ class ExpanseDetails extends StatelessWidget {
                                     width: 148.w,
                                     child: Text('Available Balance',style: AppConst.appTextStyle,)),
                                 Text(' : ',style: AppConst.appTextStyle,),
-                                Text(" 10000  ",style: AppConst.appTextStyle,),
+                                Text('$availableMoney',style: AppConst.appTextStyle,),
                                 Container(width: 1.w,color: Colors.green,)
                               ],
                             ),
