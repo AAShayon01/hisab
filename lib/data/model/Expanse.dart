@@ -1,10 +1,4 @@
-class Expense {
-  final DateTime date;
-  final String reason;
-  final double amount;
 
-  const Expense({required this.date, required this.reason, required this.amount});
-}
 
 class Earning{
   final String categoryName;
@@ -12,5 +6,13 @@ class Earning{
 
   const Earning({required this.categoryName, required this.amount,});
 
+}
 
+class Expense {
+  final String categoryName;
+  final DateTime date;
+  final String reason;
+  final double amount;
+
+  const Expense(this.categoryName, {required this.date, required this.reason, required this.amount});
 }

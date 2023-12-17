@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/utils/app_constant.dart';
-import 'package:hisab/view/widgets/aDDExpanse.dart';
 import 'package:hisab/view/widgets/addData.dart';
 import 'package:hisab/view/widgets/circularProgressIndicator.dart';
 import 'package:hisab/view/widgets/viewDetails.dart';
 import 'package:provider/provider.dart';
 import '../../provider/expanseProvider.dart';
-import '../widgets/custom_text_from_field.dart';
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -22,6 +20,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     final dd=Provider.of<DataDialogue>(context,);
     final ep=Provider.of<ExpenseProvider>(context,);
+    double totalAmount=ep.getAddedMoney();
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppConst.appTFFBorderColor,
@@ -62,7 +61,7 @@ class _HomepageState extends State<Homepage> {
                                     width: 148.w,
                                     child: Text('Total Money Added',style: AppConst.appTextStyle,)),
                                 Text(' : ',style: AppConst.appTextStyle,),
-                                Text("${ep.getAddedMoney()} ",style: AppConst.appTextStyle,),
+                                Text("$totalAmount ",style: AppConst.appTextStyle,),
                                 Container(width: 1.w,color: Colors.blue,)
                               ],
                             ),
@@ -113,20 +112,7 @@ class _HomepageState extends State<Homepage> {
                   top: 105.h,
                   child: InkWell(
                     onTap: (){
-                      // showModalBottomSheet<void>(
-                      //   context: context,
-                      //   builder: (BuildContext context) {
-                      //     return SingleChildScrollView(
-                      //       child: Padding(
-                      //         padding: EdgeInsets.only(
-                      //             bottom: MediaQuery.of(context).viewInsets.bottom + 50.h),
-                          //    child: CreateWallet(),
-                      //       ),
-                      //     );
-                      //   },
-                      // );
                       dd.showAddMoneyBottomSheet(context);
-
                     },
                     child: Container(
                         decoration: BoxDecoration(
@@ -187,13 +173,16 @@ class _HomepageState extends State<Homepage> {
               Padding(padding: EdgeInsets.only(top: 10.h),
               child:Row(
                 children: [
-                  Text('Monthly Added',style: AppConst.hisabTextStyle, ),
                   Padding(
-                    padding:EdgeInsets.only(left: 45.w),
+                    padding:EdgeInsets.only(left: 10.w),
+                    child: Text('Monthly Added',style: AppConst.hisabTextStyle, ),
+                  ),
+                  Padding(
+                    padding:EdgeInsets.only(left: 50.w),
                     child: Text('Expanse',style: AppConst.hisabTextStyle, ),
                   ),
                   Padding(
-                    padding:EdgeInsets.only(left: 30.w),
+                    padding:EdgeInsets.only(left: 40.w),
                     child: Text('Available Balance',style: AppConst.hisabTextStyle, ),
                   ),
                 ],
@@ -264,7 +253,7 @@ class _HomepageState extends State<Homepage> {
 
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                               begin:  Alignment(0.71, -0.71),
                               end:  Alignment(-0.71, 0.71),
                               colors:  [Color(0xFF1B99D7), Color(0xFF2943A3)]
@@ -275,18 +264,6 @@ class _HomepageState extends State<Homepage> {
                           ),
                         ),
                         onTap: (){
-                        //   showModalBottomSheet<void>(
-                        //   context: context,
-                        //   builder: (BuildContext context) {
-                        //     return SingleChildScrollView(
-                        //       child: Padding(
-                        //         padding: EdgeInsets.only(
-                        //             bottom: MediaQuery.of(context).viewInsets.bottom ),
-                        //         child: AddExpanse(),
-                        //       ),
-                        //     );
-                        //   },
-                        // );
                           dd.showAddExpenseBottomSheet(context);
 
                           },
@@ -307,12 +284,6 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  void _showSuccessSnackbar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(message),
-      duration: Duration(seconds: 2),
-    ));
-  }
 }
 
 

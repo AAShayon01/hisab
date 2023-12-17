@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hisab/data/model/Expanse.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/expanseProvider.dart';
@@ -17,6 +18,8 @@ class DataDialogue extends ChangeNotifier{
 
 
   void showAddMoneyBottomSheet(BuildContext context) {
+    final TextEditingController categoryNameController = TextEditingController();
+    final TextEditingController addBalanceController = TextEditingController();
 
     final ep= Provider.of<ExpenseProvider>(context,listen: false);
     showModalBottomSheet(
@@ -58,20 +61,38 @@ class DataDialogue extends ChangeNotifier{
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 30.h),
-                      child: CustomTextFormField(nameOfController: ep.categoryName, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                      child: CustomTextFormField(nameOfController: categoryNameController, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 30.h),
-                      child: CustomTextFormField(nameOfController: ep.addBalance, yourFieldText: 'Add Balance', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
+                      child: CustomTextFormField(nameOfController: addBalanceController, yourFieldText: 'Add Balance', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
                     ),
                     Padding(padding: EdgeInsets.only(top: 20.h,left:15.w,right: 15.w ),
                       child:InkWell(
                         onTap: (){
-                            ep.addBalance;
-                          showSuccessSnackbar(context, 'SuccessFully You Create Your Balance');
-                          Navigator.pop(context);
-                          ep.categoryName.clear();
-                          ep.addBalance.clear();
+
+                          String categoryName=categoryNameController.text;
+                          double addBalance=double.parse(addBalanceController.text);
+
+                          // if (categoryName.text.isNotEmpty &&  addBalance.text != null){
+                          //   ep.addEarning(categoryName.text,);
+                          // }
+                          // showSuccessSnackbar(context, 'SuccessFully You Create Your Balance');
+                          //
+                          // categoryName.clear();
+                          //  addBalance.clear();
+                          if(categoryName.isNotEmpty && addBalance != null){
+                            // ep.addEarning(categortyName:'categoryName.text', addAmount:'addBalance.text');
+                            Earning earning=Earning(categoryName: categoryName, amount: addBalance);
+                            ep.addEarning(earning);
+                            showSuccessSnackbar(context, 'SuccessFulluy wallet created');
+                            Navigator.pop(context);
+                            categoryNameController.clear();
+                            addBalanceController.clear();
+                          }
+                          else {
+                            showSuccessSnackbar(context, 'Error');
+                          }
                         },
                         child: Container(
                           height: 42.h,
@@ -119,10 +140,10 @@ class DataDialogue extends ChangeNotifier{
     );
   }
   void showAddExpenseBottomSheet(BuildContext context) {
-    final TextEditingController _categoryName=TextEditingController();
-    final TextEditingController _dateTimeController=TextEditingController();
-    final TextEditingController _expanseDescriptionController=TextEditingController();
-    final TextEditingController _addAmount=TextEditingController();
+    final TextEditingController categoryName=TextEditingController();
+    final TextEditingController dateTimeController=TextEditingController();
+    final TextEditingController expanseDescriptionController=TextEditingController();
+    final TextEditingController addAmount=TextEditingController();
 
     final ep= Provider.of<ExpenseProvider>(context,listen: false);
     showModalBottomSheet(
@@ -164,20 +185,20 @@ class DataDialogue extends ChangeNotifier{
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: _categoryName, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                      child: CustomTextFormField(nameOfController: categoryName, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: _dateTimeController, yourFieldText: 'Add Date', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                      child: CustomTextFormField(nameOfController: dateTimeController, yourFieldText: 'Add Date', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: _expanseDescriptionController, yourFieldText: 'Write Expanse Sector', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                      child: CustomTextFormField(nameOfController: expanseDescriptionController, yourFieldText: 'Write Expanse Sector', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
                     ),
 
                     Padding(
                       padding: EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: _addAmount, yourFieldText: 'Amount', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
+                      child: CustomTextFormField(nameOfController: addAmount, yourFieldText: 'Amount', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
                     ),
                     Padding(padding: EdgeInsets.only(top: 15.h,left:15.w,right: 15.w ),
                       child:InkWell(

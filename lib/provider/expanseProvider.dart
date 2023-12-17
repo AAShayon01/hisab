@@ -116,20 +116,14 @@ import 'package:flutter/material.dart';
 // }
 
 class ExpenseProvider with ChangeNotifier {
-  final TextEditingController categoryName = TextEditingController();
-  final TextEditingController addBalance = TextEditingController();
+  // final TextEditingController categoryName = TextEditingController();
+  // final TextEditingController addBalance = TextEditingController();
   List<Earning> _dailyEarnings = [];
 
   List<Earning> get totalAmount => _dailyEarnings;
 
-  void addEarning(Earning categortyName,Earning addAmount) {
-    // _dailyEarnings.add(addAmount);
-
-    if (categoryName != null &&  addBalance!= null){
-      _dailyEarnings.add(categortyName);
-      _dailyEarnings.add(addAmount);
-
-    }
+  void addEarning(Earning addAmount) {
+      _dailyEarnings.add(addAmount );
     notifyListeners();
   }
 
