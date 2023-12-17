@@ -140,10 +140,10 @@ class DataDialogue extends ChangeNotifier{
     );
   }
   void showAddExpenseBottomSheet(BuildContext context) {
-    final TextEditingController categoryName=TextEditingController();
+    final TextEditingController categoryNameController=TextEditingController();
     final TextEditingController dateTimeController=TextEditingController();
-    final TextEditingController expanseDescriptionController=TextEditingController();
-    final TextEditingController addAmount=TextEditingController();
+    final TextEditingController expenseDescriptionController=TextEditingController();
+    final TextEditingController addAmountController=TextEditingController();
 
     final ep= Provider.of<ExpenseProvider>(context,listen: false);
     showModalBottomSheet(
@@ -185,25 +185,39 @@ class DataDialogue extends ChangeNotifier{
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: categoryName, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                      child: CustomTextFormField(nameOfController: categoryNameController, yourFieldText: 'Category Name', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: dateTimeController, yourFieldText: 'Add Date', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                      child: CustomTextFormField(nameOfController: dateTimeController, yourFieldText: 'Add Date', keyBoardType: TextInputType.name, hintText: 'Add Date'),
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: expanseDescriptionController, yourFieldText: 'Write Expanse Sector', keyBoardType: TextInputType.name, hintText: 'Write Your Category'),
+                      child: CustomTextFormField(nameOfController: expenseDescriptionController, yourFieldText: 'Write Expense Sector', keyBoardType: TextInputType.name, hintText: 'Write Your Expense Name'),
                     ),
 
                     Padding(
                       padding: EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: addAmount, yourFieldText: 'Amount', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
+                      child: CustomTextFormField(nameOfController: addAmountController, yourFieldText: 'Amount', keyBoardType: TextInputType.number, hintText: 'Add Balance'),
                     ),
                     Padding(padding: EdgeInsets.only(top: 15.h,left:15.w,right: 15.w ),
                       child:InkWell(
                         onTap: (){
-                          Navigator.pop(context);
+                          String categoryName=categoryNameController.text;
+                          String dateTime=dateTimeController.text;
+                          String expenseDescription=expenseDescriptionController.text;
+                          double amountAdd=double.parse(addAmountController.text);
+                          if(categoryName.isNotEmpty && expenseDescription.isNotEmpty && amountAdd !=null){
+                            Expense expense=Expense(categoryName:categoryName, date: dateTime, reason: expenseDescription, amount: amountAdd);
+                            ep.addExpanse(expense);
+                            showSuccessSnackbar(context, 'SuccessFulluy Expense Added');
+                            Navigator.pop(context);
+                            categoryNameController.clear();
+                            dateTimeController.clear();
+                            expenseDescriptionController.clear();
+                            addAmountController.clear();
+                          }
+                          // Navigator.pop(context);
                         },
                         child: Container(
                           height: 42.h,
