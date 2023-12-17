@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../data/model/Expanse.dart';
 import 'package:flutter/material.dart';
 //
@@ -118,14 +120,53 @@ import 'package:flutter/material.dart';
 class ExpenseProvider with ChangeNotifier {
   // final TextEditingController categoryName = TextEditingController();
   // final TextEditingController addBalance = TextEditingController();
+  ///
+  // final List<Earning> _dailyEarnings = [];
+  // final List<Expense> _dailyExpanse=[];
+  // List<Expense> get totalExpanse=> _dailyExpanse;
+  //
+  // List<Earning> get totalAmount => _dailyEarnings;
+  //
+  // void addEarning(Earning addAmount) {
+  //     _dailyEarnings.add(addAmount);
+  //   notifyListeners();
+  // }
+  //
+  // double getAddedMoney() {
+  //   return _dailyEarnings.fold(0.0, (total, earning) => total + earning.amount);
+  // }
+  //
+  // void addExpanse(Expense expense){
+  //   _dailyEarnings.add(expense);
+  //   notifyListeners();
+  // }
+  // double getTotalExpanse(){
+  //   return _dailyExpanse.fold(0.0, (total, expanse) => total +expanse.amount);
+  // }
+ ///
+  String currentMonth = DateFormat('MMMM').format(DateTime.now());
   final List<Earning> _dailyEarnings = [];
-  final List<Expense> _dailyExpanse=[];
-  List<Expense> get totalExpanse=> _dailyExpanse;
+  final List<Expense> _dailyExpenses = [];
+  List<Earning> get totalEarnings => _dailyEarnings;
+  List<Expense> get totalExpenses => _dailyExpenses;
+  Expense? _editExpense;
 
-  List<Earning> get totalAmount => _dailyEarnings;
+  void startEditing(Expense expense){
+    _editExpense=expense;
+    notifyListeners();
+  }
+  void stopEditing(){
+    _editExpense = null;
+    notifyListeners();
+  }
 
-  void addEarning(Earning addAmount) {
-      _dailyEarnings.add(addAmount);
+  bool isEditing(Expense expense) {
+    return _editExpense == expense;
+  }
+
+
+  void addEarning(Earning earning) {
+    _dailyEarnings.add(earning);
     notifyListeners();
   }
 
@@ -133,11 +174,14 @@ class ExpenseProvider with ChangeNotifier {
     return _dailyEarnings.fold(0.0, (total, earning) => total + earning.amount);
   }
 
-  void addExpanse(Expense addAmount){
-    _dailyEarnings.add(addAmount);
+  void addExpense(Expense expense) {
+    _dailyExpenses.add(expense);
     notifyListeners();
   }
-  double getTotalExpanse(){
-    return _dailyExpanse.fold(0.0, (total, expanse) => total +expanse.amount);
+
+  double getTotalExpense() {
+    return _dailyExpenses.fold(0.0, (total, expense) => total + expense.amount);
   }
+
+
 }
