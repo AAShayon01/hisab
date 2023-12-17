@@ -14,5 +14,5 @@ class Expense {
   final String reason;
   final double amount;
 
-  const Expense(this.categoryName, {required this.date, required this.reason, required this.amount});
+  const Expense({required this.categoryName, required this.date, required this.reason, required this.amount});
 }

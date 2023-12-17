@@ -118,16 +118,26 @@ import 'package:flutter/material.dart';
 class ExpenseProvider with ChangeNotifier {
   // final TextEditingController categoryName = TextEditingController();
   // final TextEditingController addBalance = TextEditingController();
-  List<Earning> _dailyEarnings = [];
+  final List<Earning> _dailyEarnings = [];
+  final List<Expense> _dailyExpanse=[];
+  List<Expense> get totalExpanse=> _dailyExpanse;
 
   List<Earning> get totalAmount => _dailyEarnings;
 
   void addEarning(Earning addAmount) {
-      _dailyEarnings.add(addAmount );
+      _dailyEarnings.add(addAmount);
     notifyListeners();
   }
 
   double getAddedMoney() {
     return _dailyEarnings.fold(0.0, (total, earning) => total + earning.amount);
+  }
+
+  void addExpanse(Expense addAmount){
+    _dailyEarnings.add(addAmount);
+    notifyListeners();
+  }
+  double getTotalExpanse(){
+    return _dailyExpanse.fold(0.0, (total, expanse) => total +expanse.amount);
   }
 }
