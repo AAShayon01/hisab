@@ -21,6 +21,8 @@ class _HomepageState extends State<Homepage> {
     final dd=Provider.of<DataDialogue>(context,);
     final ep=Provider.of<ExpenseProvider>(context,);
     double totalAmount=ep.getAddedMoney();
+    double totalExpanse=ep.getTotalExpense();
+    double availableMoney=(totalAmount -totalExpanse);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppConst.appTFFBorderColor,
@@ -77,7 +79,7 @@ class _HomepageState extends State<Homepage> {
                                   Container(
                                       width:148.w,child: Text('Total Expanse',style: AppConst.appTextStyle,)),
                                   Text(' : ',style: AppConst.appTextStyle,),
-                                  Text("${ep.getAddedMoney()}",style: AppConst.appTextStyle,),
+                                  Text("$totalExpanse",style: AppConst.appTextStyle,),
                                   Container(width: 1.w,color: Colors.red,)
                                 ],
                               ),
@@ -95,7 +97,7 @@ class _HomepageState extends State<Homepage> {
                                       width: 148.w,
                                       child: Text('Available Balance',style: AppConst.appTextStyle,)),
                                   Text(' : ',style: AppConst.appTextStyle,),
-                                  Text("${ep.getAddedMoney()}",style: AppConst.appTextStyle,),
+                                  Text("$availableMoney",style: AppConst.appTextStyle,),
                                   Container(width: 1.w,color: Colors.green,)
                                 ],
                               ),
@@ -138,7 +140,7 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
           ),
-          ///neddedddddddd
+          ///neddedddddddd    ring \\\\\\\\\\\\\
           Padding(
             padding: EdgeInsets.only(top:30.h),
             child: Container(height:271.h,width: 390.w,color: AppConst.appTFFBorderColor,
@@ -148,7 +150,7 @@ class _HomepageState extends State<Homepage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Month Name',style:AppConst.appMonthNameTextStyle,),
+              Text(ep.currentMonth,style:AppConst.appMonthNameTextStyle,),
 
               Padding(
                 padding: EdgeInsets.only(top:20.h),
@@ -156,15 +158,15 @@ class _HomepageState extends State<Homepage> {
                     children: [
                       Padding(
                         padding:EdgeInsets.only(left: 0.w),
-                        child: RingProgressWidget(addMoney: 10000,color:Colors.blueAccent),
+                        child: RingProgressWidget(addMoney: totalAmount,color:Colors.blueAccent),
                       ),
                       Padding(
                         padding:EdgeInsets.only(left: 20.w),
-                        child:RingProgressWidget(addMoney: 5000,color:Colors.redAccent),
+                        child:RingProgressWidget(addMoney: totalExpanse,color:Colors.redAccent),
                       ),
                       Padding(
                         padding:EdgeInsets.only(left: 20.w),
-                        child:RingProgressWidget(addMoney: 5000,color:Colors.greenAccent),
+                        child:RingProgressWidget(addMoney: availableMoney,color:Colors.greenAccent),
                       ),
 
                     ],

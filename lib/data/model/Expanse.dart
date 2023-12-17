@@ -1,5 +1,3 @@
-
-
 class Earning{
   final String categoryName;
   final double amount;

@@ -144,9 +144,9 @@ class RingProgressWidget extends StatelessWidget {
           // Expense ring
           // Text widget
           Text(
-            '${addMoney }',
+            '$addMoney',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.bold,color: Colors.white),
           ),
         ],
       ),
@@ -154,7 +154,7 @@ class RingProgressWidget extends StatelessWidget {
   }
 
   Widget _buildRing(double progress, Color color) {
-    return Container(
+    return SizedBox(
       width: 100.w,
       height: 100.h,
       child: CustomPaint(

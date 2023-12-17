@@ -189,7 +189,32 @@ class DataDialogue extends ChangeNotifier{
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
-                      child: CustomTextFormField(nameOfController: dateTimeController, yourFieldText: 'Add Date', keyBoardType: TextInputType.name, hintText: 'Add Date'),
+                      child: GestureDetector(
+                        // onTap: () async {
+                        //   DateTime? pickedDate = await showDatePicker(
+                        //     context: context,
+                        //     initialDate: DateTime.now(),
+                        //     firstDate: DateTime(2000),
+                        //     lastDate: DateTime(2101),
+                        //   );
+                        //   if (pickedDate != null) {
+                        //     dateTimeController.text = pickedDate.toLocal().toString(); // Use toLocal as a property
+                        //   }
+                        // },
+                        onTap: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2101),
+                          );
+                          if (pickedDate != null) {
+                            dateTimeController.text = pickedDate.toLocal().toString(); // Use toLocal as a property
+                          }
+                        },
+                        child: AbsorbPointer(child: CustomTextFormField(nameOfController: dateTimeController, yourFieldText: 'Add Date', keyBoardType: TextInputType.name, hintText: 'Add Date')),
+                      )
+
                     ),
                     Padding(
                       padding:EdgeInsets.only(top: 15.h),
@@ -202,23 +227,42 @@ class DataDialogue extends ChangeNotifier{
                     ),
                     Padding(padding: EdgeInsets.only(top: 15.h,left:15.w,right: 15.w ),
                       child:InkWell(
-                        onTap: (){
-                          String categoryName=categoryNameController.text;
-                          String dateTime=dateTimeController.text;
-                          String expenseDescription=expenseDescriptionController.text;
-                          double amountAdd=double.parse(addAmountController.text);
-                          if(categoryName.isNotEmpty && expenseDescription.isNotEmpty && amountAdd !=null){
-                            Expense expense=Expense(categoryName:categoryName, date: dateTime, reason: expenseDescription, amount: amountAdd);
-                            ep.addExpanse(expense);
-                            showSuccessSnackbar(context, 'SuccessFulluy Expense Added');
+                        onTap: () {
+                          String categoryName = categoryNameController.text;
+                          String dateTime = dateTimeController.text;
+                          String expenseDescription = expenseDescriptionController.text;
+                          double amountAdd = double.parse(addAmountController.text);
+                          if (categoryName.isNotEmpty && expenseDescription.isNotEmpty && amountAdd != null) {
+                            DateTime parsedDate = DateTime.parse(dateTime);
+                            Expense expense = Expense(categoryName: categoryName, date: parsedDate, reason: expenseDescription, amount: amountAdd);
+                            ep.addExpense(expense);
+                            showSuccessSnackbar(context, 'Successfully Expense Added');
                             Navigator.pop(context);
                             categoryNameController.clear();
                             dateTimeController.clear();
                             expenseDescriptionController.clear();
                             addAmountController.clear();
                           }
-                          // Navigator.pop(context);
                         },
+
+                        // {
+                        //   String categoryName=categoryNameController.text;
+                        //   String dateTime=dateTimeController.text;
+                        //   String expenseDescription=expenseDescriptionController.text;
+                        //   double amountAdd=double.parse(addAmountController.text);
+                        //   if(categoryName.isNotEmpty && expenseDescription.isNotEmpty && amountAdd !=null){
+                        //      DateTime parsedDate=DateTime.parse(dateTime);
+                        //     Expense expense=Expense(categoryName:categoryName, date: parsedDate, reason: expenseDescription, amount: amountAdd);
+                        //     ep.addExpense(expense);
+                        //     showSuccessSnackbar(context, 'SuccessFulluy Expense Added');
+                        //     Navigator.pop(context);
+                        //     categoryNameController.clear();
+                        //     dateTimeController.clear();
+                        //     expenseDescriptionController.clear();
+                        //     addAmountController.clear();
+                        //   }
+                        //   // Navigator.pop(context);
+                        // },
                         child: Container(
                           height: 42.h,
                           width: 330.w,
@@ -237,28 +281,6 @@ class DataDialogue extends ChangeNotifier{
                 ),
               )
 
-            // Column(
-            //   mainAxisSize: MainAxisSize.min,
-            //   children: [
-            //     TextField(
-            //       controller: amountController,
-            //       keyboardType: TextInputType.number,
-            //       decoration: InputDecoration(labelText: 'Enter amount'),
-            //     ),
-            //     SizedBox(height: 16),
-            //     ElevatedButton(
-            //       onPressed: () {
-            //         if (amountController.text.isNotEmpty) {
-            //           double amount = double.parse(amountController.text);
-            //           Provider.of<ExpenseModel>(context, listen: false).addMoney(amount);
-            //           Navigator.pop(context); // Close the bottom sheet
-            //           _showSuccessSnackbar(context, 'Money added successfully');
-            //         }
-            //       },
-            //       child: Text('Add'),
-            //     ),
-            //   ],
-            // ),
           ),
         );
       },
