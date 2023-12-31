@@ -53,3 +53,7 @@ Make sure you have the following installed on your machine:
 1. Clone the repository:
    ```bash
    git clone https://github.com/AAShayon01/hisab.git
+
+
+
+Download the latest version of the app from [here](https://drive.google.com/file/d/1UnnsnE9-FK98F4w_0o-stRLPGrhdfWs4/view?usp=sharing).
