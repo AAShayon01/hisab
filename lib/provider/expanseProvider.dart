@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../data/model/Expanse.dart';
 import 'package:flutter/material.dart';
 //
@@ -142,7 +144,7 @@ class ExpenseProvider with ChangeNotifier {
   //   return _dailyExpanse.fold(0.0, (total, expanse) => total +expanse.amount);
   // }
  ///
-
+  String currentMonth = DateFormat('MMMM').format(DateTime.now());
   final List<Earning> _dailyEarnings = [];
   final List<Expense> _dailyExpenses = [];
   List<Earning> get totalEarnings => _dailyEarnings;
