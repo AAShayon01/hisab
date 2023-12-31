@@ -4,7 +4,6 @@ class Assets {
 
   static const String appsMainIconAppIcon = 'assets/appsMainIcon/appIcon.png';
   static const String iconAppsIcon = 'assets/icon/appsicon.png';
-  static const String iconBlueCircle = 'assets/icon/blue circle.png';
   static const String iconChart = 'assets/icon/Chart.png';
   static const String iconDivider = 'assets/icon/divider.png';
   static const String iconGoogle = 'assets/icon/google.png';
