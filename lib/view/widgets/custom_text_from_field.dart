@@ -36,6 +36,7 @@ class CustomTextFormField extends StatelessWidget {
               child: Padding(
                 padding:EdgeInsets.only(top: 13.h),
                 child: TextFormField(
+                  style: TextStyle(color: AppConst.appInputTextColor),
                   onChanged: onchanged,
                   keyboardType: keyBoardType,
                   autovalidateMode: AutovalidateMode.onUserInteraction,

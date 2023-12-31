@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hisab/provider/auth_provider.dart';
 import 'package:hisab/utils/app_constant.dart';
-import 'package:hisab/view/screen/homepage.dart';
-import 'package:hisab/view/screen/profile.dart';
 import 'package:hisab/view/widgets/app_header.dart';
 import 'package:hisab/view/widgets/divider.dart';
 import 'package:provider/provider.dart';
@@ -74,8 +72,6 @@ class _LoginPageState extends State<LoginPage> {
                           yourFieldText: 'Password',
                           keyBoardType:TextInputType.visiblePassword,
                           hintText:'Enter your Password',
-                        // onchanged: (value)=>ap.setPassword(value),
-                        // errorsText: ap.isPasswordValid()? null:'invalid password',
                       ),
                     ),
                     Padding(
