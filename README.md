@@ -23,18 +23,18 @@ Hisab is a mobile application that helps you manage your daily expenses and keep
     - Gain insights into your monthly financial activities.
 6. **Apps ScreenShoot**
 
-   <img src="assets/appsMainIcon/appIcon.png" alt="AppsIcon" width="400" height="600">            <img src="appSS/splash screen.jpeg" alt="Splash Screen" width="400" height="600"> 
+   <img src="assets/appsMainIcon/appIcon.png" alt="AppsIcon" width="400" height="600">   <img src="appSS/splash screen.jpeg" alt="Splash Screen" width="400" height="600"> 
    
-   <img src="appSS/login ui.jpeg" alt="Login UI" width="400" height="600">            <img src="appSS/account list and login.jpeg" alt="AC LIST" width="400" height="600"> 
+   <img src="appSS/login ui.jpeg" alt="Login UI" width="400" height="600">   <img src="appSS/account list and login.jpeg" alt="AC LIST" width="400" height="600"> 
    
 
-   <img src="appSS/after Homepage.jpeg" alt="HomePage" width="400" height="600">            <img src="appSS/after Signin .jpeg" alt="After Signing " width="400" height="600"> 
+   <img src="appSS/after Homepage.jpeg" alt="HomePage" width="400" height="600">   <img src="appSS/after Signin .jpeg" alt="After Signing " width="400" height="600"> 
 
 
-   <img src="appSS/add balance.jpeg" alt="Creating Wallet" width="400" height="600">            <img src="appSS/add expense.jpeg" alt="Expanse Adding" width="400" height="600"> 
+   <img src="appSS/add balance.jpeg" alt="Creating Wallet" width="400" height="600">  <img src="appSS/add expense.jpeg" alt="Expanse Adding" width="400" height="600"> 
 
 
-   <img src="appSS/after Homepage.jpeg" alt="Homepage" width="400" height="600">            <img src="appSS/total expense.jpeg" alt="Total Expense" width="400" height="600"> 
+   <img src="appSS/after Homepage.jpeg" alt="Homepage" width="400" height="600">    <img src="appSS/total expense.jpeg" alt="Total Expense" width="400" height="600"> 
 
    <img src="appSS/view expense list.jpeg" alt="View Expense List" width="400" height="600">            
 
